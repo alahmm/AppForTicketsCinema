@@ -62,6 +62,10 @@ public class Cinema {
             }
         }
     }
+    public static int[] BuyTicket2(int rowNumber, int seatNumberInRow) {
+        int[] ArrayOfTickets = new int[] {rowNumber, seatNumberInRow};
+        return ArrayOfTickets;
+    }
     public static void exit() {
         return;
     }
@@ -83,16 +87,25 @@ public class Cinema {
             if (selectedOption == 1) {
                 ShowSeats(cinemaMatrix, 0, 0);
                 System.out.println(options);
-            }
-            else if (selectedOption == 2) {
-                System.out.println("Enter a row number:");
-                int rowNumber = scanner.nextInt();
-                System.out.println("Enter a seat number in that row:");
-                int seatNumberInRow = scanner.nextInt();
-                BuyTicket(rowNumber, numberOfSeats, numberOfRows);
-                System.out.println(options);
-            } else {
+                //                            ShowSeats(ShowSeats2(cinemaMatrix, BuyTicket2()[BuyTicket2().lengh-4], BuyTicket2()[BuyTicket2().lengh-3]), BuyTicket2()[BuyTicket2().lengh-1], BuyTicket2()[BuyTicket2().lengh-2]);
+                }
+            else if (selectedOption == 0) {
                 return;
+         } else {
+                while (selectedOption == 2) {
+                    System.out.println("Enter a row number:");
+                    int rowNumber = scanner.nextInt();
+                    System.out.println("Enter a seat number in that row:");
+                    int seatNumberInRow = scanner.nextInt();
+                    //BuyTicket2(rowNumber,seatNumberInRow);
+                    BuyTicket(rowNumber, numberOfSeats, numberOfRows);
+                    System.out.println(options);
+                    int selectedOption2 = scanner.nextInt();
+                    if (selectedOption2 == 1) {
+                        ShowSeats(cinemaMatrix, rowNumber, seatNumberInRow);
+                        System.out.println(options);
+                    }
+                }
             }
         }
     }
