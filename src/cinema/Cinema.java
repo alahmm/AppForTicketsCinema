@@ -2,6 +2,7 @@ package cinema;
 import java.util.Scanner;
 
 public class Cinema {
+
     public static void ShowSeats(char[][] cinemaMatrix, int rowNumber, int seatNumberInRow) {
         char character = 'B';
         System.out.println("Cinema:");
@@ -65,7 +66,7 @@ public class Cinema {
             else if (selectedOption == 0) {
                 return;
          } else {
-                if (selectedOption == 2) {
+                while (selectedOption == 2) {
                     System.out.println("Enter a row number:");
                     int rowNumber = scanner.nextInt();
                     System.out.println("Enter a seat number in that row:");
@@ -76,15 +77,8 @@ public class Cinema {
                     if (selectedOption2 == 1) {
                         ShowSeats(cinemaMatrix, rowNumber, seatNumberInRow);
                         System.out.println(options);
-                    }
-                    else if (selectedOption2 == 2) {
-                        System.out.println("Enter a row number:");
-                        int rowNumber2 = scanner.nextInt();
-                        System.out.println("Enter a seat number in that row:");
-                        int seatNumberInRow2 = scanner.nextInt();
-                        BuyTicket(rowNumber2, numberOfSeats, numberOfRows);
-                        System.out.println(options);
-                    } else {
+                        scanner.nextInt();
+                    } else if (selectedOption2 == 0){
                         return;
                     }
                 }
