@@ -20,10 +20,13 @@ public class Cinema {
                     {
                         cinemaMatrix[i][j] = 'S';
                     }
+                    else if (cinemaMatrix[i][j] == character) {
+                        cinemaMatrix[i][j] = character;
+                    }
                     else if (i != rowNumber && j != seatNumberInRow-1 && cinemaMatrix[i][j] == character) {
                         cinemaMatrix[i][j] = character;
                     }
-                    else if (i == rowNumber && j == seatNumberInRow-1){
+                    else if (i == rowNumber && j == seatNumberInRow-1 && cinemaMatrix[i][j] != character){
                         cinemaMatrix[i][j] = character;
                     } else {
                         cinemaMatrix[i][j] = 'S';
@@ -67,22 +70,24 @@ public class Cinema {
                 return;
          } else {
                 while (selectedOption == 2) {
-                    System.out.println("Enter a row number:");
-                    int rowNumber = scanner.nextInt();
-                    System.out.println("Enter a seat number in that row:");
-                    int seatNumberInRow = scanner.nextInt();
-                    BuyTicket(rowNumber, numberOfSeats, numberOfRows);
-                    System.out.println(options);
-                    int selectedOption2 = scanner.nextInt();
-                    if (selectedOption2 == 1) {
-                        ShowSeats(cinemaMatrix, rowNumber, seatNumberInRow);
+//                    if (selectedOption == 2) {
+                        System.out.println("Enter a row number:");
+                        int rowNumber = scanner.nextInt();
+                        System.out.println("Enter a seat number in that row:");
+                        int seatNumberInRow = scanner.nextInt();
+                        BuyTicket(rowNumber, numberOfSeats, numberOfRows);
                         System.out.println(options);
-                        scanner.nextInt();
-                    } else if (selectedOption2 == 0){
-                        return;
+                        int selectedOption2 = scanner.nextInt();
+                        if (selectedOption2 == 1) {
+                            ShowSeats(cinemaMatrix, rowNumber, seatNumberInRow);
+                            System.out.println(options);
+                            scanner.nextInt();
+                        }
+                        if (selectedOption2 == 0){
+                            return;
+                        }
                     }
                 }
             }
         }
     }
-}
