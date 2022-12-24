@@ -70,7 +70,6 @@ public class Cinema {
                 return;
          } else {
                 while (selectedOption == 2) {
-//                    if (selectedOption == 2) {
                         System.out.println("Enter a row number:");
                         int rowNumber = scanner.nextInt();
                         System.out.println("Enter a seat number in that row:");
@@ -81,7 +80,9 @@ public class Cinema {
                         if (selectedOption2 == 1) {
                             ShowSeats(cinemaMatrix, rowNumber, seatNumberInRow);
                             System.out.println(options);
-                            scanner.nextInt();
+                            if (scanner.nextInt()==0) {
+                                return;
+                            }
                         }
                         if (selectedOption2 == 0){
                             return;
